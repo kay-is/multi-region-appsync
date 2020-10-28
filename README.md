@@ -1,12 +1,16 @@
-# Welcome to your CDK JavaScript project!
+# Multi-Region Serverless with AppSync
 
-This is a blank project for JavaScript development with CDK.
+This is an [AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html) project. 
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app. The build step is not required when using JavaScript.
+Two instance of the stack are configured and created in `bin/multi-region-appsync.js`,
+one for North-America and one for Europe.
 
-## Useful commands
+The CDK needs to be bootstrapped for each region you want deploy to.
 
- * `npm run test`         perform the jest unit tests
- * `cdk deploy`           deploy this stack to your default AWS account/region
- * `cdk diff`             compare deployed stack with current state
- * `cdk synth`            emits the synthesized CloudFormation template
+You need a domain managed by AWS Route53 and insert your credentials to `bin/multi-region-appsync.js`.
+
+## Commands
+
+- `cdk bootstrap accountId/region1 accountId/region2`
+- `cdk deploy DemoAPI-EU`
+- `cdk deploy DemoAPI-US`
